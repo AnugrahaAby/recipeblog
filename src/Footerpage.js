@@ -38,7 +38,7 @@ const Footerpage = () => {
             <li>Use Cases</li>
             <li>Testimonials</li>
             <li>Insights</li>
-          </ul>
+         </ul>
         </div>
         </Grid>
 
