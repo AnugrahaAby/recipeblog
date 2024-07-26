@@ -1,13 +1,13 @@
 
 import './App.css';
 import Navbar from './Navbar';
-import Heroimg from './Heroimg';
 import Footerpage from './Footerpage';
+import Dashboard from './Dashboard';
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Heroimg />
+     <Dashboard />
       <Footerpage />
     </div>
   );

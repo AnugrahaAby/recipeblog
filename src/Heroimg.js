@@ -16,15 +16,57 @@ import StarIcon from '@mui/icons-material/Star';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import { Paper, IconButton, CircularProgress } from '@mui/material';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+const styles = {
+  paper: {
+    padding: '20px',
+    textAlign: 'center',
+    color: 'white',
+    backgroundColor: '#C4D600',
+    borderRadius: '10px',
+    position: 'relative',
+  },
+  arrowButton: {
+    position: 'absolute',
+    top: '10px',
+    right: '10px',
+    color: 'white'
+  }
+};
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+const Heroimg = () => {
+ 
+  const [Album, setAlbum] = useState([]);
+
+  useEffect(() => {
+   
+
+    fetch('https://dummyjson.com/recipes')
+      .then((response) => response.json())
+      .then((data) => setAlbum(data.recipes))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
+
+  return (
+    <div className="Heroimg">
+     
+
+      <Grid container sx={{ marginTop: 2,marginBottom: 4}}>
+        <Grid item xs={12}>
+          <Box
+            component="img"
+            src={pic}
+            alt="Curved Image"
+            sx={{
+              width: '100%',              
+              height:"100%",
+            }}
+          />
+        </Grid>
+      
+      </Grid>
+
 
 
 function Heroimg() {
@@ -107,30 +149,46 @@ function Heroimg() {
           </Box>
         </Grid>
 
-        <Grid item  xs={2}>
-        <Box sx={{ml:12, mt:4, width:"236.8px", height:"86px",radius:"10px", bgcolor:"#F6784C",color:"#FFFFFF",gap:'20px'}}>
-        <Typography variant="h6" textAlign='center'>Breakfast</Typography>
-        </Box>
+        <Grid item xs={12} sm={6} md={4} lg={2} ml={12} >
+          <Paper style={styles.paper} elevation={3}>
+            <Typography variant="h6">Breakfast</Typography>
+            <IconButton style={styles.arrowButton} >
+              <ArrowForwardIcon />
+            </IconButton>
+          </Paper>
         </Grid>
-        <Grid item  xs={2}>
-        <Box sx={{ml:12, mt:4, width:"236.8px", height:"86px", radius:"10px", bgcolor:"#C4D600",color:"#FFFFFF",gap:'20px'}}>
-        <Typography variant="h6">Dinner</Typography>
-        </Box>
+      
+        <Grid item xs={12} sm={6} md={4} lg={2} >
+          <Paper style={styles.paper} elevation={3}>
+            <Typography variant="h6">Dinner</Typography>
+            <IconButton style={styles.arrowButton} >
+              <ArrowForwardIcon />
+            </IconButton>
+          </Paper>
         </Grid>
-        <Grid item  xs={2}>
-        <Box sx={{ml:12, mt:4,width:"236.8px", height:"86px", radius:"10px", bgcolor:"#EAAA00",color:"#FFFFFF",gap:'20px'}}>
-        <Typography variant="h6">Desert</Typography>
-        </Box>
+        <Grid item xs={12} sm={6} md={4} lg={2} >
+          <Paper style={styles.paper} elevation={3}>
+            <Typography variant="h6">Desert</Typography>
+            <IconButton style={styles.arrowButton} >
+              <ArrowForwardIcon />
+            </IconButton>
+          </Paper>
         </Grid>
-        <Grid item  xs={2}>
-        <Box sx={{ml:12, mt:4,width:"236.8px", height:"86px", radius:"10px", bgcolor:"#ED8B00",color:"#FFFFFF",gap:'20px'}}>
-        <Typography variant="h6">Snacks</Typography>
-        </Box>
+        <Grid item xs={12} sm={6} md={4} lg={2} >
+          <Paper style={styles.paper} elevation={3}>
+            <Typography variant="h6">Snacks</Typography>
+            <IconButton style={styles.arrowButton} >
+              <ArrowForwardIcon />
+            </IconButton>
+          </Paper>
         </Grid>
-        <Grid item  xs={2}>
-        <Box sx={{ml:12,mt:4,width:"236.8px", height:"86px", radius:"10px", bgcolor:"#84BD00",color:"#FFFFFF",gap:'20px'}}>
-        <Typography variant="h6">Lunch</Typography>
-        </Box>
+        <Grid item xs={12} sm={6} md={4} lg={2} >
+          <Paper style={styles.paper} elevation={3}>
+            <Typography variant="h6">Lunch</Typography>
+            <IconButton style={styles.arrowButton} >
+              <ArrowForwardIcon />
+            </IconButton>
+          </Paper>
         </Grid>
 
         <Grid item xs={3}>
@@ -567,8 +625,7 @@ function Heroimg() {
  
 
     </div>
-     
   );
-}
+};
 
 export default Heroimg;
